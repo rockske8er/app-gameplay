@@ -1,0 +1,12 @@
+{
+  "name": "GamePlay",
+  "displayName": "GamePlay",
+  "expo": {
+    "name": "GamePlay",
+    "slug": "GamePlay",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
