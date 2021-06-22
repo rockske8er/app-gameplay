@@ -10,9 +10,9 @@ interface AvatarProps {
 }
 
 export function Avatar({ urlImage }: AvatarProps) {
-  const { Secondary80, Secondary100 } = Theme.Colors;
+  const { Secondary50, Secondary70 } = Theme.Colors;
   return (
-    <LinearGradient style={S.Container} colors={[Secondary80, Secondary100]}>
+    <LinearGradient style={S.Container} colors={[Secondary50, Secondary70]}>
       <Image style={S.Avatar} source={{ uri: urlImage }} />
     </LinearGradient>
   );

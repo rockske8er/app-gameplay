@@ -7,7 +7,7 @@ import { Theme } from '../../Base/Styles/Theme';
 
 interface ButtonPlusProps extends RectButtonProps {}
 
-function ButtonPlus({ ...rest }: ButtonPlusProps) {
+export function ButtonPlus({ ...rest }: ButtonPlusProps) {
   return (
     <RectButton {...rest} style={S.Container}>
       <MaterialCommunityIcons
@@ -18,5 +18,3 @@ function ButtonPlus({ ...rest }: ButtonPlusProps) {
     </RectButton>
   );
 }
-
-export default ButtonPlus;
