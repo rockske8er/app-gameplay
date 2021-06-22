@@ -1,17 +1,11 @@
 import React from 'react';
-
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TouchableOpacityProps,
-  Image,
-} from 'react-native';
+import { View, Text, Image } from 'react-native';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
 import { S } from './styles';
 import DicordIcon from './../../assets/discord.png';
 
-interface GamePlayButtonIconProps extends TouchableOpacityProps {
+interface GamePlayButtonIconProps extends RectButtonProps {
   title: string;
 }
 
@@ -20,12 +14,12 @@ export const GamePlayButtonIcon = ({
   ...rest
 }: GamePlayButtonIconProps) => {
   return (
-    <TouchableOpacity style={S.Container} {...rest}>
+    <RectButton style={S.Container} {...rest}>
       <View style={S.IconBox}>
         <Image source={DicordIcon} style={S.Icon} />
       </View>
 
       <Text style={S.Title}>{title}</Text>
-    </TouchableOpacity>
+    </RectButton>
   );
 };

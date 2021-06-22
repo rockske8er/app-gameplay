@@ -10,8 +10,10 @@ import {
 
 //SplashScreen
 import AppLoading from 'expo-app-loading';
-//Screens
-import { SignIn } from './Screens/SignIn';
+
+//Routes
+import { Routes } from './Routes';
+
 //Component
 import { Background } from './Components/Background';
 
@@ -34,7 +36,7 @@ const App = () => {
         translucent
         backgroundColor="transparent"
       />
-      <SignIn />
+      <Routes />
     </Background>
   );
 };

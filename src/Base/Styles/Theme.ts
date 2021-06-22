@@ -5,8 +5,8 @@ export const Theme = {
     On: '#32BD50',
     Background: '#0D133E',
     Heading: '#DDE3F0',
-
     Line: '#991F36',
+
     Primary: '#E51c44',
     Secondary90: '#0D133D',
     Secondary80: '#0E1647',
