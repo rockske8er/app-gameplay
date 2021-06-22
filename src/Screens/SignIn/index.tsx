@@ -1,24 +1,20 @@
 import React from 'react';
-
-import { View, Text, Image, StatusBar } from 'react-native';
-import { S } from './styles';
-
-import Ilustration from './../../assets/illustration.png';
+import { View, Text, Image } from 'react-native';
+// Component
 import { GamePlayButtonIcon } from '../../Components/GamePlayButtonIcon';
+// Image
+import Ilustration from './../../assets/illustration.png';
+// Styles
+import { S } from './styles';
 
 export const SignIn = () => {
   return (
     <View style={S.Container}>
-      <StatusBar
-        barStyle="light-content"
-        translucent
-        backgroundColor="transparent"
-      />
       <Image resizeMode={'stretch'} source={Ilustration} style={S.Image} />
 
       <View style={S.Content}>
         <Text style={S.Title}>
-          Organize{`\n`}suas jogatinas{`\n`}facilmente
+          Conecte-se{`\n`}e organize suas {`\n`}jogatinas
         </Text>
         <Text style={S.Headline}>
           Crie grupos para jogar seus games {`\n`} favoritos com seus amigos

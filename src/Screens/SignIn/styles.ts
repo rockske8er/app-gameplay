@@ -6,7 +6,6 @@ export const S = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Theme.Colors.Background,
   },
 
   Image: {
@@ -20,16 +19,20 @@ export const S = StyleSheet.create({
   },
 
   Title: {
+    fontFamily: Theme.Fonts.TitleBold,
     fontSize: 40,
     color: Theme.Colors.Heading,
     textAlign: 'center',
+    lineHeight: 40,
     marginBottom: 16,
   },
 
   Headline: {
-    color: Theme.Colors.Heading,
+    fontFamily: Theme.Fonts.TitleMedium,
     fontSize: 15,
+    color: Theme.Colors.Heading,
     textAlign: 'center',
+    lineHeight: 24,
     marginBottom: 64,
   },
 });
