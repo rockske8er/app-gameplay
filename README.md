@@ -1,7 +1,7 @@
 <h1 align="center">
     <img alt="GamePlay" 
         title="GamePlay" 
-        src=".github/logo.svg"
+        src=".github/logo.png"
     />
 </h1>
 

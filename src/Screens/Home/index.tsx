@@ -6,9 +6,10 @@ import { Profile } from '../../Components/Profile';
 import { ButtonPlus } from './../../Components/ButtonPlus';
 import { GameCategory } from './../../Components/GameCategory';
 import { ListHeader } from '../../Components/ListHeader';
+import { ListDivider } from '../../Components/ListDivider';
+import { Appoitment } from '../../Components/Appoitment';
 
 import { S } from './styles';
-import { Appoitment } from '../../Components/Appoitment';
 
 export const Home = () => {
   const [category, setCategory] = useState('');
@@ -30,6 +31,19 @@ export const Home = () => {
       date: '22/06 ás 18:00h',
       description: 'category 1',
     },
+
+    {
+      id: '2',
+      guild: {
+        id: '2',
+        name: 'Moderada',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/06 ás 18:00h',
+      description: 'category 2',
+    },
   ];
   return (
     <View style={S.Container}>
@@ -38,23 +52,22 @@ export const Home = () => {
         <ButtonPlus />
       </View>
 
-      <View>
-        <GameCategory
-          setCategory={handleCategorySelected}
-          categorySelected={category}
+      <GameCategory
+        setCategory={handleCategorySelected}
+        categorySelected={category}
+      />
+
+      <View style={S.Content}>
+        <ListHeader title="Partidas Agendadas" subtitle="Total 6" />
+
+        <FlatList
+          style={S.Matches}
+          showsHorizontalScrollIndicator={false}
+          data={appoitments}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <Appoitment data={item} />}
+          ItemSeparatorComponent={() => <ListDivider />}
         />
-
-        <View style={S.Content}>
-          <ListHeader title="Partidas Agendadas" subtitle="Total 6" />
-
-          <FlatList
-            style={S.Matches}
-            showsHorizontalScrollIndicator={false}
-            data={appoitments}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => <Appoitment data={item} />}
-          />
-        </View>
       </View>
     </View>
   );
