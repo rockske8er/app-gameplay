@@ -14,4 +14,7 @@ export const S = StyleSheet.create({
     marginTop: getStatusBarHeight() + 26,
     marginBottom: 42,
   },
+
+  Content: { marginTop: 42 },
+  Matches: { marginTop: 24, marginLeft: 20 },
 });

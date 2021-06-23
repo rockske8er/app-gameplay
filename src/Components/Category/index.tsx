@@ -28,7 +28,6 @@ export function Category({
         <View style={[S.Content, { opacity: checked ? 1 : 0.4 }]}>
           <View style={checked ? S.Checked : S.Check} />
           <Icon width={48} height={48} />
-
           <Text style={S.Title}>{title}</Text>
         </View>
       </LinearGradient>
