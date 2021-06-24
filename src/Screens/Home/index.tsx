@@ -11,12 +11,18 @@ import { Appoitment } from '../../Components/Appoitment';
 import { Background } from '../../Components/Background';
 
 import { S } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export const Home = () => {
+  const navigation = useNavigation();
   const [category, setCategory] = useState('');
 
   const handleCategorySelected = (categoryId: string) => {
     categoryId === category ? setCategory('') : setCategory(categoryId);
+  };
+
+  const handleAppoitmentDetails = () => {
+    navigation.navigate('Detalhes');
   };
 
   const appoitments = [
@@ -66,7 +72,9 @@ export const Home = () => {
           showsHorizontalScrollIndicator={false}
           data={appoitments}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Appoitment data={item} />}
+          renderItem={({ item }) => (
+            <Appoitment data={item} onPress={handleAppoitmentDetails} />
+          )}
           ItemSeparatorComponent={() => <ListDivider />}
         />
       </View>

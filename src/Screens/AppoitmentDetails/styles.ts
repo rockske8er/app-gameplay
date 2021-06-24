@@ -1,5 +1,44 @@
-import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
+import { Theme } from '../../Base/Styles/Theme';
 
-export const Container = styled.View`
+export const S = StyleSheet.create({
+  Container: {
+    flex: 1,
+  },
 
-`;
+  Banner: {
+    width: '100%',
+    height: 234,
+    marginBottom: 30,
+  },
+
+  Members: {
+    marginHorizontal: 20,
+    marginTop: 24,
+  },
+
+  Content: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 30,
+    paddingHorizontal: 20,
+  },
+
+  Title: {
+    fontFamily: Theme.Fonts.TitleBold,
+    fontSize: 28,
+    color: Theme.Colors.Heading,
+  },
+
+  Headline: {
+    fontFamily: Theme.Fonts.TextRegular,
+    fontSize: 14,
+    color: Theme.Colors.Heading,
+  },
+
+  Footer: {
+    paddingHorizontal: 20,
+    marginBottom: getBottomSpace(),
+  },
+});

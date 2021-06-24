@@ -5,6 +5,7 @@ import { Theme } from '../Base/Styles/Theme';
 //Rotas
 import { Home } from '../Screens/Home';
 import { SignIn } from '../Screens/SignIn';
+import { AppoitmentDetails } from '../Screens/AppoitmentDetails';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -20,6 +21,7 @@ export const AuthRoutes = () => {
     >
       <Screen name="SignIn" component={SignIn} />
       <Screen name="Home" component={Home} />
+      <Screen name="Detalhes" component={AppoitmentDetails} />
     </Navigator>
   );
 };
