@@ -6,6 +6,7 @@ import { Theme } from '../Base/Styles/Theme';
 import { Home } from '../Screens/Home';
 import { SignIn } from '../Screens/SignIn';
 import { AppoitmentDetails } from '../Screens/AppoitmentDetails';
+import { AppoitmentCreate } from '../Screens/AppoitmentCreate';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -22,6 +23,7 @@ export const AuthRoutes = () => {
       <Screen name="SignIn" component={SignIn} />
       <Screen name="Home" component={Home} />
       <Screen name="Detalhes" component={AppoitmentDetails} />
+      <Screen name="Criar Agendamento" component={AppoitmentCreate} />
     </Navigator>
   );
 };

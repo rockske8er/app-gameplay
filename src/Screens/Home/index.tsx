@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 //Component
 import { Profile } from '../../Components/Profile';
@@ -25,6 +25,9 @@ export const Home = () => {
     navigation.navigate('Detalhes');
   };
 
+  const handleAppoitmentCreate = () => {
+    navigation.navigate('Criar Agendamento');
+  };
   const appoitments = [
     {
       id: '1',
@@ -56,7 +59,7 @@ export const Home = () => {
     <Background>
       <View style={S.Header}>
         <Profile />
-        <ButtonPlus />
+        <ButtonPlus onPress={handleAppoitmentCreate} />
       </View>
 
       <GameCategory

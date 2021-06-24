@@ -5,7 +5,7 @@ import { S } from './styles';
 
 interface ListProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 export const ListHeader = ({ title, subtitle }: ListProps) => {
