@@ -9,6 +9,7 @@ export const Theme = {
 
     Primary: '#E51c44',
     Secondary90: '#0D133D',
+    Secondary85: '#171F52',
     Secondary80: '#0E1647',
     Secondary70: '#1B2565',
     Secondary60: '#1B2565',

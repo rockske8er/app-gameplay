@@ -8,12 +8,14 @@ import { Category } from './../Category';
 
 interface GameCategoryProps {
   categorySelected: string;
+  hasCheckBox?: boolean;
   setCategory: (categoryId: string) => void;
 }
 
 export const GameCategory = ({
   categorySelected,
   setCategory,
+  hasCheckBox = false,
 }: GameCategoryProps) => {
   return (
     <ScrollView
@@ -31,6 +33,7 @@ export const GameCategory = ({
           icon={category.icon}
           checked={category.id === categorySelected}
           onPress={() => setCategory(category.id)}
+          hasCheckBox={hasCheckBox}
         />
       ))}
     </ScrollView>
