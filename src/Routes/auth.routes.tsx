@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { Theme } from '../Base/Styles/Theme';
+//Rotas
 import { Home } from '../Screens/Home';
 import { SignIn } from '../Screens/SignIn';
 
@@ -12,7 +14,7 @@ export const AuthRoutes = () => {
       headerMode="none"
       screenOptions={{
         cardStyle: {
-          backgroundColor: 'transparent',
+          backgroundColor: Theme.Colors.Background,
         },
       }}
     >

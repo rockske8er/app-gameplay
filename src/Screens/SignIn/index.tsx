@@ -7,6 +7,7 @@ import { GamePlayButtonIcon } from '../../Components/GamePlayButtonIcon';
 import Ilustration from './../../assets/illustration.png';
 // Styles
 import { S } from './styles';
+import { Background } from '../../Components/Background';
 
 export const SignIn = () => {
   const navigation = useNavigation();
@@ -16,19 +17,24 @@ export const SignIn = () => {
   };
 
   return (
-    <View style={S.Container}>
-      <Image resizeMode={'stretch'} source={Ilustration} style={S.Image} />
+    <Background>
+      <View style={S.Container}>
+        <Image resizeMode={'stretch'} source={Ilustration} style={S.Image} />
 
-      <View style={S.Content}>
-        <Text style={S.Title}>
-          Conecte-se{`\n`}e organize suas {`\n`}jogatinas
-        </Text>
-        <Text style={S.Headline}>
-          Crie grupos para jogar seus games {`\n`} favoritos com seus amigos
-        </Text>
+        <View style={S.Content}>
+          <Text style={S.Title}>
+            Conecte-se{`\n`}e organize suas {`\n`}jogatinas
+          </Text>
+          <Text style={S.Headline}>
+            Crie grupos para jogar seus games {`\n`} favoritos com seus amigos
+          </Text>
 
-        <GamePlayButtonIcon title="Entre com Discord" onPress={handleSignIn} />
+          <GamePlayButtonIcon
+            title="Entre com Discord"
+            onPress={handleSignIn}
+          />
+        </View>
       </View>
-    </View>
+    </Background>
   );
 };

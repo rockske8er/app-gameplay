@@ -8,6 +8,7 @@ import { GameCategory } from './../../Components/GameCategory';
 import { ListHeader } from '../../Components/ListHeader';
 import { ListDivider } from '../../Components/ListDivider';
 import { Appoitment } from '../../Components/Appoitment';
+import { Background } from '../../Components/Background';
 
 import { S } from './styles';
 
@@ -46,7 +47,7 @@ export const Home = () => {
     },
   ];
   return (
-    <View style={S.Container}>
+    <Background>
       <View style={S.Header}>
         <Profile />
         <ButtonPlus />
@@ -69,6 +70,6 @@ export const Home = () => {
           ItemSeparatorComponent={() => <ListDivider />}
         />
       </View>
-    </View>
+    </Background>
   );
 };
