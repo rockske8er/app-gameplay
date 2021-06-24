@@ -46,5 +46,6 @@ export const S = StyleSheet.create({
     fontFamily: Theme.Fonts.TitleBold,
     color: Theme.Colors.Heading,
     fontSize: 16,
+    marginTop: 20,
   },
 });

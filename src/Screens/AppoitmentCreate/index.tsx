@@ -23,11 +23,25 @@ import { GameCategory } from '../../Components/GameCategory';
 import { SmallInput } from '../../Components/SmallInput';
 import { Textarea } from '../../Components/Textarea';
 import { Buttom } from '../../Components/Buttom';
+import ModalApp from '../../Components/ModalApp';
+import { Guilds } from '../Guilds';
+import { GuildData } from '../Guild';
 
 interface AppoitmentDetailsProps {}
 
 export function AppoitmentCreate() {
   const [category, setCategory] = useState('');
+  const [openGuildsModal, setOpenGuildsModal] = useState(false);
+  const [guild, setGuild] = useState<GuildData>({} as GuildData);
+
+  const handleOpenGuilds = () => {
+    setOpenGuildsModal(!openGuildsModal);
+  };
+
+  const handleGuildSelected = (guildSelected: GuildData) => {
+    setGuild(guildSelected);
+    setOpenGuildsModal(!openGuildsModal);
+  };
 
   const handleCategorySelected = (categoryId: string) => {
     categoryId === category ? setCategory('') : setCategory(categoryId);
@@ -38,9 +52,8 @@ export function AppoitmentCreate() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={S.Container}
     >
+      <Header title="Agendar Partida" />
       <ScrollView>
-        <Header title="Agendar Partida" />
-
         <View style={{ marginBottom: 24, marginTop: 32 }}>
           <ListHeader title="Categoria" />
         </View>
@@ -52,15 +65,14 @@ export function AppoitmentCreate() {
         />
 
         <View style={S.Form}>
-          <RectButton>
+          <RectButton onPress={handleOpenGuilds}>
             <View style={S.Select}>
-              {
-                /*<View style={S.Image} /> */
-                <GuildIcon />
-              }
+              {guild.icon ? <GuildIcon /> : <View style={S.Image} />}
 
               <View style={S.SelectBody}>
-                <Text style={S.Title}>Selecione o Servidor</Text>
+                <Text style={S.Title}>
+                  {guild.name ? guild.name : 'Selecione o Servidor'}
+                </Text>
               </View>
 
               <Feather
@@ -107,6 +119,10 @@ export function AppoitmentCreate() {
           </View>
         </View>
       </ScrollView>
+
+      <ModalApp visible={openGuildsModal}>
+        <Guilds selectedGuild={handleGuildSelected} />
+      </ModalApp>
     </KeyboardAvoidingView>
   );
 }
