@@ -41,6 +41,7 @@ O Happy é uma aplicação que conecta pessoas à casas de acolhimento instituci
 
 #togheter
 #unidade
+#embuscadeevolução
 
 ## 🔖 Layout
 
@@ -60,4 +61,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Feito com ♥ Por Rockske8er :wave: [Participe da nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
+Feito com ♥ Por Rockske8er :wave: & Desenvolvido na #NLW Togheter da Rocketseat
