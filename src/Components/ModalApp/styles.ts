@@ -18,7 +18,7 @@ export const S = StyleSheet.create({
     height: 2,
     borderRadius: 2,
     marginTop: 14,
+    marginBottom: 14,
     alignSelf: 'center',
-    marginBottom: 104,
   },
 });

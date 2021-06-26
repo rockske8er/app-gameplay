@@ -16,7 +16,7 @@ import { Theme } from '../../Base/Styles/Theme';
 export type GuildData = {
   id: string;
   name: string;
-  icon?: string;
+  icon?: string | null;
   owner: boolean;
 };
 

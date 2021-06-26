@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
 import { GuildIcon } from '../GuildIcon';
+import { GuildData } from './../Guild';
 
 import { categories } from '../../Utils/categories';
 
@@ -11,15 +12,11 @@ import Calendar from './../../assets/calendar.svg';
 
 import { S } from './styles';
 import { Theme } from '../../Base/Styles/Theme';
-
-export type GuildProps = {
-  name: string;
-  owner: boolean;
-};
+import { LinearGradient } from 'expo-linear-gradient';
 
 export type AppoitmentsData = {
   id: string;
-  guild: GuildProps;
+  guild: GuildData;
   category: string;
   date: string;
   description: string;
@@ -32,11 +29,17 @@ interface AppoitmentProps extends RectButtonProps {
 export function Appoitment({ data, ...rest }: AppoitmentProps) {
   const [category] = categories.filter((cat) => cat.id === data.category);
   const { name, owner } = data.guild;
-  const { Primary, On } = Theme.Colors;
+  const { Primary, On, Secondary50, Secondary70 } = Theme.Colors;
   return (
     <RectButton {...rest}>
       <View style={S.Container}>
-        <GuildIcon />
+        <LinearGradient
+          colors={[Secondary50, Secondary70]}
+          style={S.GuildIconContainer}
+        >
+          <GuildIcon />
+        </LinearGradient>
+
         <View style={S.Content}>
           <View style={S.Header}>
             <Text style={S.Title}>{name}</Text>

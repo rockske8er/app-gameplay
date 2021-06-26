@@ -4,7 +4,7 @@ import { ListDivider } from '../../Components/ListDivider';
 
 import { S } from './styles';
 
-import { Guild, GuildData } from './../Guild';
+import { Guild, GuildData } from './../../Components/Guild';
 
 type GuildsProps = {
   selectedGuild: (guild: GuildData) => void;
@@ -25,13 +25,6 @@ export const Guilds = ({ selectedGuild }: GuildsProps) => {
       icon: '',
       owner: true,
     },
-
-    {
-      id: '3',
-      name: 'Turma do Rock',
-      icon: 'icon.png',
-      owner: false,
-    },
   ];
   return (
     <View>
@@ -41,9 +34,11 @@ export const Guilds = ({ selectedGuild }: GuildsProps) => {
         renderItem={({ item }) => (
           <Guild onPress={() => selectedGuild(item)} data={item} />
         )}
-        ItemSeparatorComponent={() => <ListDivider />}
+        ListHeaderComponent={() => <ListDivider isCentered />}
+        ItemSeparatorComponent={() => <ListDivider isCentered />}
         showsVerticalScrollIndicator={false}
         style={S.Guilds}
+        contentContainerStyle={{ paddingBottom: 68, paddingTop: 104 }}
       />
     </View>
   );

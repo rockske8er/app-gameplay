@@ -1,26 +1,32 @@
 import React, { ReactNode } from 'react';
-import { View, Modal, ModalProps } from 'react-native';
+import {
+  View,
+  Modal,
+  ModalProps,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import { Background } from '../Background';
 
 import { S } from './styles';
 
 type ModalAppProps = ModalProps & {
   children: ReactNode;
+  closeModal: () => void;
 };
 
-const ModalApp = ({ children, ...rest }: ModalAppProps) => {
+export const ModalApp = ({ children, closeModal, ...rest }: ModalAppProps) => {
   return (
-    <Modal {...rest} transparent animationType="slide">
-      <View style={S.Overlay}>
-        <View style={S.Container}>
-          <Background>
-            <View style={S.Bar} />
-            {children}
-          </Background>
+    <Modal {...rest} transparent animationType="slide" statusBarTranslucent>
+      <TouchableWithoutFeedback onPress={closeModal}>
+        <View style={S.Overlay}>
+          <View style={S.Container}>
+            <Background>
+              <View style={S.Bar} />
+              {children}
+            </Background>
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     </Modal>
   );
 };
-
-export default ModalApp;

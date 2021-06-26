@@ -8,6 +8,7 @@ export const S = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
+    marginTop: 24,
   },
 
   Title: {

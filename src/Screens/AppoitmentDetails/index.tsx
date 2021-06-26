@@ -68,6 +68,7 @@ export function AppoitmentDetails() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <Member data={item} />}
         ItemSeparatorComponent={() => <ListDivider />}
+        contentContainerStyle={{ paddingBottom: 68 }}
       />
 
       <View style={S.Footer}>

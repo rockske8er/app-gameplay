@@ -8,6 +8,8 @@ export const S = StyleSheet.create({
     backgroundColor: Theme.Colors.Secondary40,
     color: Theme.Colors.Heading,
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: Theme.Colors.Secondary50,
     fontFamily: Theme.Fonts.TextRegular,
     fontSize: 14,
     textAlign: 'center',

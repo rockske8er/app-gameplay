@@ -54,6 +54,45 @@ export const Home = () => {
       date: '22/06 ás 18:00h',
       description: 'category 2',
     },
+
+    {
+      id: '3',
+      guild: {
+        id: '2',
+        name: 'Moderada',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/06 ás 18:00h',
+      description: 'category 2',
+    },
+
+    {
+      id: '4',
+      guild: {
+        id: '2',
+        name: 'Moderada',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/06 ás 18:00h',
+      description: 'category 2',
+    },
+
+    {
+      id: '6',
+      guild: {
+        id: '2',
+        name: 'Moderada',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/06 ás 18:00h',
+      description: 'category 2',
+    },
   ];
   return (
     <Background>
@@ -67,20 +106,19 @@ export const Home = () => {
         categorySelected={category}
       />
 
-      <View style={S.Content}>
-        <ListHeader title="Partidas Agendadas" subtitle="Total 6" />
+      <ListHeader title="Partidas Agendadas" subtitle="Total 6" />
 
-        <FlatList
-          style={S.Matches}
-          showsHorizontalScrollIndicator={false}
-          data={appoitments}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <Appoitment data={item} onPress={handleAppoitmentDetails} />
-          )}
-          ItemSeparatorComponent={() => <ListDivider />}
-        />
-      </View>
+      <FlatList
+        style={S.Matches}
+        showsHorizontalScrollIndicator={false}
+        data={appoitments}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Appoitment data={item} onPress={handleAppoitmentDetails} />
+        )}
+        ItemSeparatorComponent={() => <ListDivider />}
+        contentContainerStyle={{ paddingBottom: 68 }}
+      />
     </Background>
   );
 };

@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { Theme } from '../../Base/Styles/Theme';
 
 export const S = StyleSheet.create({
@@ -13,19 +12,19 @@ export const S = StyleSheet.create({
   Content: {
     flex: 1,
     justifyContent: 'center',
+    marginLeft: 20,
   },
 
   GuildName: {
     fontFamily: Theme.Fonts.TitleBold,
     fontSize: 18,
     color: Theme.Colors.Heading,
-    marginBottom: 12,
+    marginBottom: 4,
   },
 
   OwnerName: {
     fontFamily: Theme.Fonts.TextRegular,
     fontSize: 14,
     color: Theme.Colors.Highlight,
-    marginBottom: 12,
   },
 });

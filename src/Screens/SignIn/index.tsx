@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 // Component
 import { GamePlayButtonIcon } from '../../Components/GamePlayButtonIcon';
@@ -8,12 +8,19 @@ import Ilustration from './../../assets/illustration.png';
 // Styles
 import { S } from './styles';
 import { Background } from '../../Components/Background';
+import { useAuth } from '../../Hooks/Auth';
+import { Alert } from 'react-native';
+import { Theme } from '../../Base/Styles/Theme';
 
 export const SignIn = () => {
-  const navigation = useNavigation();
+  const { signIn, loading } = useAuth();
 
-  const handleSignIn = () => {
-    navigation.navigate('Home');
+  const handleSignIn = async () => {
+    try {
+      await signIn();
+    } catch (error) {
+      Alert.alert(error);
+    }
   };
 
   return (
@@ -28,11 +35,14 @@ export const SignIn = () => {
           <Text style={S.Headline}>
             Crie grupos para jogar seus games {`\n`} favoritos com seus amigos
           </Text>
-
-          <GamePlayButtonIcon
-            title="Entre com Discord"
-            onPress={handleSignIn}
-          />
+          {loading ? (
+            <ActivityIndicator color={Theme.Colors.Primary} />
+          ) : (
+            <GamePlayButtonIcon
+              title="Entre com Discord"
+              onPress={handleSignIn}
+            />
+          )}
         </View>
       </View>
     </Background>

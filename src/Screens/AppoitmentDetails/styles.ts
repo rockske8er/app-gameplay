@@ -10,7 +10,6 @@ export const S = StyleSheet.create({
   Banner: {
     width: '100%',
     height: 234,
-    marginBottom: 30,
   },
 
   Members: {
@@ -35,10 +34,11 @@ export const S = StyleSheet.create({
     fontFamily: Theme.Fonts.TextRegular,
     fontSize: 14,
     color: Theme.Colors.Heading,
+    lineHeight: 24,
   },
 
   Footer: {
     paddingHorizontal: 20,
-    marginBottom: getBottomSpace(),
+    marginBottom: getBottomSpace() + 24,
   },
 });
