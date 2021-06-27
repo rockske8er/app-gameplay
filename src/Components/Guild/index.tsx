@@ -16,7 +16,7 @@ import { Theme } from '../../Base/Styles/Theme';
 export type GuildData = {
   id: string;
   name: string;
-  icon?: string | null;
+  icon: string | null;
   owner: boolean;
 };
 
@@ -25,10 +25,10 @@ type GuildProps = TouchableOpacityProps & {
 };
 
 export const Guild = ({ data, ...rest }: GuildProps) => {
-  const { name, icon, owner } = data;
+  const { name, icon, owner, id } = data;
   return (
     <TouchableOpacity {...rest} style={S.Container}>
-      <GuildIcon />
+      <GuildIcon guildId={id} iconId={icon} />
       <View style={S.Content}>
         <View>
           <Text style={S.GuildName}>{name}</Text>

@@ -1,14 +1,17 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import * as AuthSession from 'expo-auth-session';
 
-import {
-  CDN_IMAGE,
-  CLIENT_ID,
-  REDIRECT_URI,
-  RESPONSE_TYPE,
-  SCOPE,
-} from './../Configs';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const { CDN_IMAGE } = process.env;
+const { CLIENT_ID } = process.env;
+const { REDIRECT_URI } = process.env;
+const { RESPONSE_TYPE } = process.env;
+const { SCOPE } = process.env;
+
 import { api } from '../Services/Api';
+import { COLLECTION_USERS } from './../Configs/Storage';
+import { useEffect } from 'react';
 
 type User = {
   id: string;
@@ -31,7 +34,8 @@ type AuthProviderProps = {
 
 type AuthorizationResponse = AuthSession.AuthSessionResult & {
   params: {
-    access_token: string;
+    access_token?: string;
+    error?: string;
   };
 };
 
@@ -51,28 +55,43 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         authUrl,
       })) as AuthorizationResponse;
 
-      if (type === 'success') {
+      if (type === 'success' && !params.error) {
         api.defaults.headers.authorization = `Bearer ${params.access_token}`;
 
         const userInfo = await api.get('/users/@me');
+        const firstName = userInfo.data.username.split(' ')[0];
+        userInfo.data.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`;
 
-        const { username, id, avatar } = userInfo.data;
-        const firstName = username.split(' ')[0];
-        userInfo.data.avatar = `${CDN_IMAGE}/avatar/${id}/${avatar}.png`;
-
-        setUser({
+        const userData = {
           ...userInfo.data,
           firstName,
           token: params.access_token,
-        });
-        setLoading(false);
-      } else {
-        setLoading(false);
+        };
+
+        await AsyncStorage.setItem(COLLECTION_USERS, JSON.stringify(userData));
+
+        setUser(userData);
       }
     } catch {
       throw new Error('Não foi possível autenticar');
+    } finally {
+      setLoading(false);
     }
   }
+
+  useEffect(() => {
+    const getUserStorage = async () => {
+      const user = await AsyncStorage.getItem(COLLECTION_USERS);
+
+      if (user) {
+        const userLogged = JSON.parse(user) as User;
+        api.defaults.headers.authorization = `Bearer ${userLogged.token}`;
+        setUser(userLogged);
+      }
+    };
+
+    getUserStorage();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, signIn, loading }}>

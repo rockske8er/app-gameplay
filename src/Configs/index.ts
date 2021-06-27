@@ -6,4 +6,6 @@ import {
   SCOPE,
 } from './DiscordAuth';
 
+import { COLLECTION_APPOITMENTS, COLLECTION_USERS } from './Storage';
+
 export { CDN_IMAGE, CLIENT_ID, REDIRECT_URI, RESPONSE_TYPE, SCOPE };

@@ -6,7 +6,7 @@ export const Theme = {
     Background: '#0D133E',
     Heading: '#DDE3F0',
     Line: '#991F36',
-
+    Discord: '#7289DA',
     Primary: '#E51c44',
     Secondary90: '#0D133D',
     Secondary85: '#171F52',

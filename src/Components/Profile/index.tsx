@@ -20,7 +20,7 @@ export const Profile = () => {
       <View>
         <View style={S.User}>
           <Text style={S.Greating}>Olá</Text>
-          <Text style={S.Username}>{user.firstName}</Text>
+          <Text style={S.Username}>{user.username}</Text>
         </View>
         <Text style={S.Message}>Hoje é dia de Vitória</Text>
       </View>
