@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-
-import { View, Text } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
+import { View, Text, Alert } from 'react-native';
 import { useAuth } from '../../Hooks/Auth';
 
 import { Avatar } from './../Avatar';
@@ -12,10 +12,28 @@ interface ProfileProps {
 }
 
 export const Profile = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = () => {
+    Alert.alert('Logout', 'Deseja sair da GamePlay', [
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+      {
+        text: 'Sim',
+        onPress: () => {
+          signOut();
+        },
+      },
+    ]);
+  };
+
   return (
     <View style={S.Container}>
-      <Avatar urlImage={user.avatar} />
+      <RectButton onPress={handleSignOut}>
+        <Avatar urlImage={user.avatar} />
+      </RectButton>
 
       <View>
         <View style={S.User}>

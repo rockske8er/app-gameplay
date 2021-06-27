@@ -22,13 +22,13 @@ export type AppoitmentsData = {
   description: string;
 };
 
-interface AppoitmentProps extends RectButtonProps {
+export interface AppoitmentProps extends RectButtonProps {
   data: AppoitmentsData;
 }
 
 export function Appoitment({ data, ...rest }: AppoitmentProps) {
   const [category] = categories.filter((cat) => cat.id === data.category);
-  const { name, owner } = data.guild;
+  const { name, owner, id, icon } = data.guild;
   const { Primary, On, Secondary50, Secondary70 } = Theme.Colors;
   return (
     <RectButton {...rest}>
@@ -37,7 +37,7 @@ export function Appoitment({ data, ...rest }: AppoitmentProps) {
           colors={[Secondary50, Secondary70]}
           style={S.GuildIconContainer}
         >
-          <GuildIcon />
+          <GuildIcon guildId={id} iconId={icon} />
         </LinearGradient>
 
         <View style={S.Content}>

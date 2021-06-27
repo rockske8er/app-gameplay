@@ -26,6 +26,7 @@ type AuthData = {
   user: User;
   loading: boolean;
   signIn: () => Promise<void>;
+  signOut: () => Promise<void>;
 };
 
 type AuthProviderProps = {
@@ -79,6 +80,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }
 
+  const signOut = async () => {
+    setUser({} as User);
+
+    await AsyncStorage.removeItem(COLLECTION_USERS);
+  };
+
   useEffect(() => {
     const getUserStorage = async () => {
       const user = await AsyncStorage.getItem(COLLECTION_USERS);
@@ -94,7 +101,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, signIn, loading }}>
+    <AuthContext.Provider value={{ user, signIn, signOut, loading }}>
       {children}
     </AuthContext.Provider>
   );

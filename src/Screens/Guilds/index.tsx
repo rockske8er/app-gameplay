@@ -15,15 +15,15 @@ export const Guilds = ({ selectedGuild }: GuildsProps) => {
   const [guilds, setGuilds] = useState<GuildData[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const getGuilds = async () => {
+    const { data } = await api.get('/users/@me/guilds');
+
+    setGuilds(data);
+
+    setLoading(false);
+  };
+
   useEffect(() => {
-    const getGuilds = async () => {
-      const { data } = await api.get('/users/@me/guilds');
-
-      setGuilds(data);
-
-      setLoading(false);
-    };
-
     getGuilds();
   }, []);
 
